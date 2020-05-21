@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/mockjs/dist/mock.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    // 使用 Mock
+    // var Mock = require('mockjs');
+    var data = Mock.mock({
+        // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+        'list|1-10': [{
+            // 属性 id 是一个自增数，起始值为 1，每次增 1
+            'user':{
+                "id|+1":0,
+                name:"@first"
+            }
+        }]
+    })
+    // 输出结果
+    // console.log(data);
+    // console.log(JSON.stringify(data, null, 4));
+    // $('<pre>').text(JSON.stringify(data, null, 4)).appendTo('body');
+    var obj = {
+        name:"runoob",
+        alexa:10000,
+        site:"www.runoob.com"
+    };
+    console.log(obj);
+    console.log(JSON.stringify(obj));
+    /* console.log(JSON.stringify(obj,function(a,b){
+        if(b==10000){
+            return {
+                name:"runoob",
+                site:"www.runoob.com"
+            };
+        }
+        return b;
+    },4)); */
+</script>
+</html>

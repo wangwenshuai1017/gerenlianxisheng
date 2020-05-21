@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-1.11.0.js"></script>
+    <style>
+        #app{
+            width:800px;
+            height: 600px;
+            border:1px solid #000;
+            overflow: hidden;
+            margin:0 auto;
+            position: relative;
+        }
+        .newDiv{
+            position: absolute;
+            top:0;
+            right:0;
+            bottom: 0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    /* function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min; 
+    } */
+    function Person(a,b) {
+        var odiv = document.createElement("div");
+        odiv.style.width = a + "px";
+        odiv.style.height = a + "px";
+        odiv.style.background = b;
+        odiv.style.borderRadius = 50 +"%";
+        odiv.setAttribute("class", "newDiv");
+        odiv.style.left = Math.random()*(800-100)+100 + "px";
+        odiv.style.top = Math.random()*(600-100)+100 + "px";
+        odiv.onclick = function(){
+            this.style.background = "yellow";
+        }
+        setInterval( () =>{
+            odiv.style.left = parseInt(odiv.style.left) + 2 + "px";
+            odiv.style.top = parseInt(odiv.style.top) + 2 + "px";
+        },800);
+        return odiv;
+    }
+    function foo(){
+        b = Math.random()*(100-30)+30;
+        b = parseInt(b);
+        var a = new Person(b,"red");
+        var app = document.getElementById("app");
+        app.appendChild(a);
+    }
+    
+    setInterval( ()=>foo(),2000);
+
+</script>
+</html>

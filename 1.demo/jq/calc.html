@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<style>
+#div1 {
+    /* position: absolute; */
+    /* left: 50px; */
+    width: calc(100% - 100px);
+    border: 1px solid black;
+    background-color: yellow;
+    padding: 5px;
+    text-align: center;
+    margin:0 auto;
+}
+</style>
+</head>
+
+<body>
+    <p>创建一个横跨屏幕的div，div 两边有 50px 的间隙：</p>
+    <div id="div1">一些文本...</div>
+    <!-- 
+        calc() 函数用于动态计算长度值。
+        ● 需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；
+        ● 任何长度值都可以使用calc()函数进行计算；
+        ● calc()函数支持 "+", "-", "*", "/" 运算；
+        ● calc()函数使用标准的数学运算优先级规则；
+        支持版本：CSS3 
+    -->
+    <p>&lt;&gt;&copy;a&#771;&reg;</p>
+</body>
+<script>
+var test = function(a){
+    this.a=a;
+    return function(b){
+        return this.a+b;
+    }(function(a,b){
+        return a;
+    }(11,45));
+}
+var result = test(7);
+
+
+var a = 1;
+setTimeout(function(){
+    alert(a);
+    a=a+1;
+}, 1001);
+a=3;
+
+
+/* function foo(){
+    var z = 3;
+}
+foo();
+console.log(z); */
+</script>
+</html>

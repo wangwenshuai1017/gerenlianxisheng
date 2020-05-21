@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            border:1px solid #000;
+            overflow: hidden;
+        }
+        .before{
+            width:300px;
+            height:80px;
+            background:red;
+            /* float: left; */
+            display:inline-block;
+            vertical-align: middle;
+        }
+        .later{
+            width: 300px;
+            background:green;
+            /* float: left; */
+            display:inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- <div class="before"></div> -->
+        <div class="before"></div><div class="later">元素默认的高度</div>
+    </div>
+</body>
+</html>

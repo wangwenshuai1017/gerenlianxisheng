@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<style>
+.arrow {
+    position: absolute;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 110px;
+    top: 46%;
+    left: 60%;
+    transform: translateX(-49%);
+    z-index:3;
+    background: #000;
+}
+</style>
+<body>
+    <div class="arrow">
+        <div class="left-arrow mr-4">
+            <i class="fas fa-chevron-left second-arrow"></i>
+            <i class="fas fa-chevron-left first-arrow"></i>
+        </div>
+        |
+        <div class="right-arrow">
+            <i class="fas fa-chevron-right first-arrow"></i>
+            <i class="fas fa-chevron-right second-arrow"></i>
+        </div>
+    </div>    
+</body>
+<script>
+'use strict'
+
+class AnimatedArrow {
+    constructor() {
+        this.firstArrow = document.getElementsByClassName("first-arrow");
+        this.secondArrow = document.getElementsByClassName("second-arrow");
+        this.changeArrowColor();
+    };
+
+    changeArrowColor() {
+        if (this.firstArrow[0].style.color !== 'rgb(239, 125, 8)') {
+            this.firstArrow[0].style.color = 'rgb(239, 125, 8)';
+            this.firstArrow[1].style.color = 'rgb(239, 125, 8)';
+        } else {
+            this.firstArrow[0].style.color = 'white';
+            this.firstArrow[1].style.color = 'white';
+            this.secondArrow[0].style.color = 'rgb(239, 125, 8)';
+            this.secondArrow[1].style.color = 'rgb(239, 125, 8)';
+            setTimeout(() => {
+                this.secondArrow[0].style.color = 'white';
+                this.secondArrow[1].style.color = 'white';
+            }, 450);
+        };
+
+        setTimeout(() => {
+            this.changeArrowColor();
+        }, 710);
+    };
+};
+var a = new AnimatedArrow();
+console.log(a);
+</script>
+</html>

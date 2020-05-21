@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.0.0/js/bootstrap.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
+    <script>
+        /* window.setTimeout(function(){
+            alert("完成!");
+        },3000); */
+        /* for(var a = 0;a<30000;a++){
+            console.log(a);
+        } */
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <h3 class="text-center">
+                    bt-s3可视化布局系统.
+                </h3>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-md-4">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-md-4">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <form class="form-search ser">
+                    <input class="input-medium search-query" type="text" />
+                    <button type="button" class="btn btn-danger">查找</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <style>
+        .ser{padding-left:15px;text-align:center;}
+        *{padding:0;margin:0;}
+        .left{float:left;}
+        .right{float:right;}
+        .wrap{display:flex;}
+        .box1{width:200px;height:300px;padding-left: 15px;}
+        .box1>ul{height: 100%;display:flex;flex-direction: column;}
+        .box1>ul li{list-style:none;border:1px solid #000;flex: 1;display: flex;flex-direction: column;justify-content: center;}
+        .box2{flex: 1;border:1px solid #000;}
+        .box2>ul{height: 100%;display:flex;flex-direction: column;}
+        .box2>ul li{flex: 1;display: flex;flex-direction: column;justify-content: center;}
+        .oul{padding-left:20px;}
+        .oli{list-style: none;display: inline-block;padding:5px;border:1px solid red;margin:5px;}
+        .oli.hot{color:red;}
+    </style>
+    <div class="wrap">
+        <div class="box1 left">
+            <ul></ul>
+        </div>
+        <!-- <div class="box2 right">
+            <ul>
+                <li>list1</li>
+                <li>list1</li>
+                <li>list1</li>
+                <li>list1</li>
+                <li>list1</li>
+                <li>list1</li>
+                <li>list1</li>
+            </ul>
+        </div> -->
+    </div>
+    
+</body>
+<!-- <script>
+//Ajax封装函数
+function Ajax(type, url, data, success, failed){
+    // 创建ajax对象
+    var xhr = null;
+    if(window.XMLHttpRequest){//非IE浏览器
+        xhr = new XMLHttpRequest();
+    } else if (ActiveXObject('Microsoft.XMLHTTP')){//IE浏览器
+        xhr = new ActiveXObject('Microsoft.XMLHTTP')
+    }else{
+        alert("该浏览器不支持Ajax！");
+    }
+
+    // 用于清除缓存
+    var random = Math.random();
+ 
+    if(typeof data == 'object'){
+        var str = '';
+        for(var key in data){
+            str += key+'='+data[key]+'&';
+        }
+        data = str.replace(/&$/, '');
+    }
+ 
+    if(type.toUpperCase() == 'GET'){
+        if(data){
+            xhr.open('GET', url + '?' + data, true);
+        } else {
+            xhr.open('GET', url + '?t=' + random, true);
+        }
+        xhr.send();
+ 
+    } else if(type.toUpperCase() == 'POST'){
+        xhr.open('POST', url, true);
+        // 如果需要像 html 表单那样 POST 数据，请使用 setRequestHeader() 来添加 http 头。
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(data);
+    }
+ 
+    // 处理返回数据
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+        /*
+        ** Http状态码
+        ** 1xx ：信息展示
+        ** 2xx ：成功
+        ** 3xx ：重定向
+        ** 4xx : 客户端错误
+        ** 5xx ：服务器端错误
+        */
+            if(xhr.status == 200){
+                success(xhr.responseText);
+            } else {
+                if(failed){
+                    failed(xhr.status);
+                }
+            }
+        }
+    }
+}
+// https://suggest.taobao.com/sug?code=utf-8&q=c&_ksTS=1545111513203_3896&callback=foo&k=1&area=c2c&bucketid=15
+var sendData = {code:'utf-8',q:'c',_ksTS:"1545111513203_3896",callback:"foo",k:"1",area:"c2c",bucketid:"15"};
+Ajax('get', 'https://suggest.taobao.com/sug', sendData, function(data){
+    console.log(data);
+}, function(error){
+    console.log(error);
+});
+</script> -->
+<script>
+jQuery(document).ready(function($){
+    var serval;
+    $(".btn").click(function(){
+        serval = $(this).prev("input").val();
+        $(".box1>ul li").remove();
+        $(".wrap .box2").remove();
+        $.ajax({
+            type: "get",
+            url: "https://suggest.taobao.com/sug",
+            data: "code=utf-8&q="+ serval +"&_ksTS=1545111513203_3896&k=1&area=c2c&bucketid=15",
+            dataType: "jsonp",
+            success: function (data) {
+                // console.log(data.magic);
+                $.each(data.result,(i,n)=>{
+                    // 添加结果区域
+                    var oli = `<li>${n[0]}</li>`;
+                    $(".box1").find("ul").append(oli);
+                    // 添加结果项对应的商品种类区域
+                    var odiv = `<div class="box2 right"></div>`;
+                    $(".wrap").append(odiv).find(".box2").hide();
+                });
+
+                // 遍历对应的商品种类数据添加并添加
+                var str;
+                $.each(data.magic,(i,n)=>{
+                    // console.log(n.index -1);
+                    var index = n.index -1;
+                    var odiv = "<div>";
+                    $.each(n.data,(a,b)=>{
+                        var oul = "<ul class='oul'>";
+                            $.each(b,(c,d)=>{
+                                if(d.type=="hot"){
+                                    oul+=`<li class="oli hot">${d.title}</li>`;
+                                }else{
+                                    oul+=`<li class="oli">${d.title}</li>`;
+                                }
+                            })
+                        oul+="</ul>";
+                        odiv+=oul;
+                    });
+                    odiv+="</div>";
+                    $(".wrap").find(".box2").eq(n.index-1).html(odiv);
+                });
+            }
+        });
+    })
+    // console.log($(".box1>ul:empty"));
+    /* if($(".box1>ul:empty").length>0){
+        alert("aaa");
+    } */
+    $(".wrap .box1 ul").on("mouseenter","li",function(){
+        $(".wrap .box2").eq($(this).index()).show().siblings().not(".box1").hide();
+    })
+})
+</script>
+</html>

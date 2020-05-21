@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui.css">
+    <script src="layui.all.js"></script>
+    <style>
+        ul{
+            max-width:1200px;
+            margin:0 auto;
+            text-align:center;
+        }
+        li{
+            display: inline-block;
+        }
+        #page{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <ul id="demo">
+
+    </ul>
+    <div id="page"></div>
+</body>
+<script>
+    var data=[
+	{
+		href:'/cn/market-activity/88-unlimited',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/88-unlimited_20190901.jpg',
+		time:'2019.08/01<br />~2019.10/31',
+		title:'坐佣天下 无限领取'
+	},{
+		href:'/cn/market-activity/proportion-gifts',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/proportion-gifts_20190829_1.jpg',
+		time:'2019.09/01<br />~2019.09/30',
+		title:'入金即获 最高2W USD'
+	},{
+		href:'/cn/market-activity/open-account-surprise',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/proportion-gifts_20190829_2.jpg',
+		time:'2019.09/01<br />~2019.09/30',
+		title:'开户即送100 USD'
+	},
+	{
+		href:'/cn/market-activity/show-wealth-one-summer',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/activities_cover_20190712_1.jpg?v=2',
+		time:'2019.07/12<br />~2019.10/31',
+		title:'GeminiCap 带您炫富一夏'
+	},{
+		href:'/cn/market-activity/show-wealth-one-summer',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/activities_cover_20190712_1.jpg?v=2',
+		time:'2019.07/12<br />~2019.10/31',
+		title:'GeminiCap 带您炫富一夏'
+	},{
+		href:'/cn/market-activity/show-wealth-one-summer',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/activities_cover_20190712_1.jpg?v=2',
+		time:'2019.07/12<br />~2019.10/31',
+		title:'GeminiCap 带您炫富一夏'
+	},{
+		href:'/cn/market-activity/show-wealth-one-summer',
+		img:'https://www.geminicap.com/cn/wp-content/themes/gemini-cn/images/activities_cover_20190712_1.jpg?v=2',
+		time:'2019.07/12<br />~2019.10/31',
+		title:'GeminiCap 带您炫富一夏'
+	}];
+        // 优惠礼遇
+	layui.use('laypage', function(){
+		var laypage = layui.laypage;
+		//执行一个laypage实例
+		laypage.render({
+			elem: 'page',
+			count:data.length, //数据总数，从服务端得到
+			limit:6,
+			// limits:[5,10,15,20],
+			theme:'#01acbb',
+			jump:function(obj,first){
+				//模拟渲染
+				console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+    			console.log(obj.limit); //得到每页显示的条数
+				document.getElementById('demo').innerHTML = function(){
+					var arr = [];
+					var thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+					layui.each(thisData, function(index, item){
+						arr.push('<li>'+
+								'<a href="'+thisData[index].href+'">'+
+									'<img class="market_activity_img" src="'+thisData[index].img+'" alt="" />'+
+									'<div class="new_row2_list2_text">'+
+										'<div class="h4_box">'+
+											'<h4>'+thisData[index].title+'</h4>'+
+										'</div>'+
+										'<div class="text_box">'+
+												'<div class="text_box_inner">'+
+													'<span class="time_text">'+thisData[index].time+'</span>'+
+													'<span class="learn_more_link">了解更多</span>'+
+												'</div>'+
+										'</div>'+
+									'</div>'+
+								'</a>'+
+							'</li>');
+					});
+					return arr.join('');
+				}();
+				//首次不执行.
+				if(!first){
+					//do something
+					alert("出发了分页按钮！")
+				} 
+			}
+		});
+	});
+
+	layui.data('test', {
+		key: 'nickname1'
+		,value: '贤心1'
+	});
+
+	layui.data('test', {
+		key: 'nickname2'
+		,value: '贤心2'
+	});
+
+	var localTest = layui.data('test');
+	console.log(localTest); //获得“贤心”
+
+	var device = layui.device();
+	console.log(device,layui.cache);
+
+</script>
+</html>

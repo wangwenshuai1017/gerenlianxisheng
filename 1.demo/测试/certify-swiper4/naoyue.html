@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Swiper的切换</title>
+<link rel="stylesheet" href="css/swiper.min.css">
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/swiper.min.js"></script>
+<style>
+*,
+*:before,
+*:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+margin:0;padding:0;
+}
+a{ color:#323232; outline:none; text-decoration:underline;}
+.clear{ clear:both; height:0; font-size:0; width:100%;}
+.hide {display: none;}
+.left {float: left;}
+.right {float: right;}
+a{text-decoration: none;}
+/* Always remember to compress your live stylesheet and keep an uncompressed backup */
+.home .banner .swiper-container{}
+.home .banner .swiper-wrapper{}
+
+.home .banner .swiper-slide{height: 551px;}
+.home .banner .swiper-slide.i1{background: url("./images/nanyue_dec_banner_item1.jpg") center center/cover no-repeat;}
+.home .banner .swiper-slide.i2{background: url("./images/nanyue_dec_banner_item1.jpg") center center/cover no-repeat;}
+.home .banner .swiper-slide.i3{background: url("./images/nanyue_dec_banner_item1.jpg") center center/cover no-repeat;}
+.home .banner .swiper-slide.i4{background: url("./images/nanyue_dec_banner_item1.jpg") center center/cover no-repeat;}
+.home .banner .swiper-slide.i5{background: url("./images/nanyue_dec_banner_item1.jpg") center center/cover no-repeat;}
+
+.home .banner .swiper-slide.i1{padding:124px 0 120px;}
+.home .banner .swiper-slide.i1 .wrap{max-width: 563px;margin:0 auto;text-align: center;}
+.home .banner .swiper-slide.i1 h3{font-size: 48px;color: #ffffff;line-height: 116%;}
+.home .banner .swiper-slide.i1 img{margin-bottom:4px;}
+.home .banner .swiper-slide.i1 p{color: #ffffff;line-height: 120%;font-size: 24px;margin-bottom: 23px;}
+.home .banner .swiper-slide.i1 span{color: #f7b500;font-size: 16px;display: inline-block;margin-bottom: 75px;}
+.home .banner .swiper-slide.i1 a{color: #ffffff;font-size: 21px;line-height: 1;display: inline-block;padding:19px 48px 20px 49px;background-color: #d53c3c;border-radius: 5px;}
+
+.home .banner .swiper-pagination-bullet{width: 15px;height: 15px;background: #fff;opacity: 1;}
+.home .banner .swiper-pagination-bullet-active{background: #d53c3c;}
+.home .banner .swiper-container-horizontal>.swiper-pagination-bullets, .home .banner .swiper-pagination-custom, .swiper-pagination-fraction{bottom: 26px;}
+
+.home .banner .swiper-button-next, .swiper-button-prev{width: 49px;height: 98px;}
+.home .banner .swiper-button-prev{background: url("./images/left.png") 5px center no-repeat;left:0px;}
+.home .banner .swiper-button-next{background: url("./images/right.png") 20px center no-repeat;right:0px;}
+.home .banner .swiper-button-prev:hover{background: url("./images/left_hover.png");}
+.home .banner .swiper-button-next:hover{background: url("./images/right_hover.png");}
+</style>
+</head>
+<body>
+<div class="home">
+	<div class="banner">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide i1">
+					<div class="wrap">
+						<h3>瓦努阿图 捐款移民计划</h3>
+						<img src="./images/banner_line.png" alt="">
+						<p>四次荣登全球幸福度最高的国家<br/>《Lonely Planet》(世界最大私人旅游出版商)</p>
+						<span>南粤国际向您诚挚推荐，保有纯粹原始的自然态，来自南太平洋的梦幻岛国。</span>
+						<a href="#" class="gha">免费评估</a>
+					</div>
+				</div>
+				<div class="swiper-slide i2"></div>
+				<div class="swiper-slide i3"></div>
+				<div class="swiper-slide i4"></div>
+				<div class="swiper-slide i5"></div>
+			</div>
+			<div class="swiper-button-prev"></div><!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+    		<div class="swiper-button-next"></div><!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
+			<div class="swiper-pagination"></div><!--分页器。如果放置在swiper-container外面，需要自定义样式。-->
+		</div>
+	</div>
+</div>
+</body>
+<script>
+jQuery(document).ready(function($){
+	mySwiper = new Swiper('.swiper-container', {
+		loop : true,
+		// autoplay: true,
+		pagination: {
+			el: '.swiper-pagination',
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	})
+})
+</script>
+</html>

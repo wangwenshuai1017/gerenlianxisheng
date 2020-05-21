@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="con">
+        猥琐发育！别浪！
+    </div>
+    <button id="btn">播放</button>
+</body>
+<script>
+    var ocon = document.getElementsByClassName("con")[0];
+    var obtn = document.getElementById("btn");
+    console.log(ocon.innerText);
+    var f3;
+    function init(){
+        var firstr,
+            endstr,
+            str = ocon.innerText;
+        firstr = str.substring(0,1);
+        endstr = str.substring(1);
+        str = endstr + firstr;
+        ocon.innerText = str;
+        f3 = function(){
+            console.log(str);
+        }
+    }
+    var timer = null;
+    obtn.onclick = function(){
+        if(timer!=null){
+            clearInterval(timer);
+        }
+        timer = setInterval(() => {
+            init();
+            f3()
+        }, 100);
+        console.log(timer);
+    }
+</script>
+</html>

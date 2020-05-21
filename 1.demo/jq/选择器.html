@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+    <!-- jQuery Migrate是应用迁移辅助插件，是用于高级版本兼容低级版本辅助插件。 -->
+    <script src="https://cdn.bootcss.com/jquery-migrate/1.3.0/jquery-migrate.min.js"></script>
+</head>
+<body>
+    <input type="radio" value="Input Button"/>
+    <input type="radio" value="Input Button"/>
+    <input type="radio" value="Input Button"/>
+    <input type="radio" value="Input Button"/>
+    <input type="radio" value="Input Button"/>
+    <button>提交</button>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>小黑</td>
+                <td>23岁</td>
+            </tr>
+            <tr>
+                <td>小王</td>
+                <td>21岁</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>0岁</td>
+            </tr>
+            <tr>
+                <td>小张</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>小李</td>
+                <td>20岁</td>
+            </tr>
+        </tbody>
+    </table>
+    <form>
+        <input type="text" name="name" value="John"/>
+        <input type="text" name="password" value="password"/>
+        <input type="text" name="url" value="http://ejohn.org/"/>
+    </form>
+    <button id="btn">切换</button>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Soda</li>
+        <li>Tea</li>
+    </ul>
+</body>
+<script type="text/javascript">
+    $(function(){
+        $("button").on("click",function(){
+            $(":input:checked").hide();
+        })
+        // $("tr:even").css("background","red");
+        // $("td:empty").parent().hide();
+
+        /* let a = $("form input").map(function () {   
+            return $(this).val();
+        }).get().join("-");
+        console.log(a); */
+
+        // $("form").after("<p>"+ a +"</p>");
+        // console.log($("form").find("input:first").attr("value"));
+
+       /*  $("#btn").toggle(function(){//1.9版本 .toggle(function, function, … ) 方法删除
+            alert("Animation Done.");
+        },function(){
+            alert("Animation Done2.");
+        }); */
+        /* $("#btn").on("click",function(){
+            console.log($("ul li").size());//自1.8版本废弃，请使用.length代替
+        }) */
+    })
+</script>
+</html>

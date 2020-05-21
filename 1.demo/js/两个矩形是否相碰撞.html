@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.11.0.js"></script>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        html,body{
+            height: 100%;
+            position: relative;
+        }
+        div{
+            position:absolute;
+            background: #cecece;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+<script>
+// 已知两个矩形200*200,400*400,x1,y1,x2,y2判断两个矩形是否相碰撞。
+var x1=parseInt(Math.random()*1000),
+y1=parseInt(Math.random()*600),
+x2=parseInt(Math.random()*1000),
+y2=parseInt(Math.random()*600);
+$(".box1").css({
+    "width":"200px",
+    "height":"200px",
+    "top":y1,
+    "left":x1
+})
+$(".box2").css({
+    "width":"400px",
+    "height":"400px",
+    "top":y2,
+    "left":x2
+})
+var flag = true;
+if(x1+200<x2 || x2+400<x1 || y1+200<y2 || y2+400<y1){
+    flag = false;
+    console.log("没碰撞了")
+}else {
+    flag = true;
+    console.log("碰撞了")
+}
+</script>
+</html>

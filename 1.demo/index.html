@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.11.0.js"></script>
+</head>
+<body>
+    <a href="https://myaccount.geminicapital-global.com/login/index" class="log login_btn" target="_black" >
+        <p></p>
+        <span>LOG IN</span>
+    </a>
+    <a href="https://myaccount.geminicapital-global.com/register/index" target="_black" class="open live_account_btn">
+        <span>OPEN LIVE ACCOUNT</span>
+    </a>
+    <a href="/demo-account" class="demo demo_account_btn">
+        <span>DEMO ACCOUNT</span>
+    </a>
+
+    <div class="box">
+        234234
+
+        <p>asdf
+            <i>123</i>
+        </p>
+        1010
+                          
+        <span>sdfsd</span>
+    </div>
+</body>
+<script>
+$(function(){
+    function setlink(obj){
+        obj.attr("href",function(){
+            $(this).attr("href",$(this).attr("href") + "?cpid=" + 123);
+        });
+    }
+    var arr_a = $('.demo_account_btn').add(".login_btn").add(".live_account_btn");
+    arr_a.each(function(a,b){
+        setlink($(b));
+    })
+    /* for in 遍历一个对象的可枚举属性。
+    for of 用于遍历一个可迭代（iterable）的对象 伪数组不可迭代。*/
+    /* for(var a of arr_a){ 
+        console.log(arr_a); 
+    } */
+    
+    console.log($(".box").contents());
+
+    // 对象解构赋值
+    var a = {data:[1,2,3,4],menu:{status:"200",msg:"获取菜单数据成功"}};
+    var { data:res } = a;
+    console.log(res);
+})
+var str = "goodgoodstudy";
+var arr = str.split("oo");
+console.log(arr);
+str = arr.join("oo");
+console.log(str);
+</script>
+</html>

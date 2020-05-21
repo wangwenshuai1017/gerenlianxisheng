@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<style type="text/css">
+* {
+  margin:0px;
+}
+ul li {
+  height:20px;
+}
+.gonggao {
+  height:20px;
+  overflow:hidden
+}
+</style>
+<script type="text/javascript">
+let ann = () => {
+  let stopscroll = false;
+  let gonggaoBox = document.getElementsByClassName("gonggao")[0];
+  let ulBox = gonggaoBox.getElementsByTagName("ul")[0];
+  let ulBoxH = ulBox.offsetHeight;
+  gonggaoBox.onmouseover = () => { stopscroll = true }
+  gonggaoBox.onmouseout = () => { stopscroll = false }
+ 
+  let currentTop = 0;
+  let stoptime = 0;
+ 
+  ulBox.innerHTML = ulBox.innerHTML + ulBox.innerHTML;
+   
+  let init_srolltext = () => {
+    gonggaoBox.scrollTop = 0;
+    setInterval(scrollUp, 15);
+  }
+  let scrollUp = () => {
+    if (stopscroll) return;
+    currentTop += 1;
+    if (currentTop == 21) {
+      stoptime += 1;
+      currentTop -= 1;
+      if (stoptime == 220) {
+        currentTop = 0;
+        stoptime = 0;
+      }
+    } else {
+      gonggaoBox.scrollTop += 1;
+      if (ulBoxH == gonggaoBox.scrollTop) {
+        gonggaoBox.scrollTop = 0;
+      }
+    }
+  }
+  init_srolltext();
+}
+ 
+window.onload = function () {
+  ann();
+}
+</script>
+</head>
+<body>
+<div class="gonggao">
+  <ul>
+    <li>
+      <span><a href="#">宗旨是分享免费文本教程</a></span><em>( 2018-04-11 )</em>
+    </li>
+    <li>
+      <span><a href="#">网站近期改版</a></span><em>( 2018-04-05 )</em>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

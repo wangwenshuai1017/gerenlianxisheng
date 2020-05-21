@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var speed = 1;
+        var y = -50;
+        function init() {
+            var a = createElem();
+            // console.log(a);
+            animation();
+        }
+        function createElem() {//创建小球
+            var div = document.createElement("div");
+            // console.log(div.style);
+            Object.assign(div.style, { //将一个对象的可枚举属性的值从一个或多个源对象复制到目标对象。
+                width: "50px",
+                height: "50px",
+                backgroundColor: randomColor(),
+                borderRadius: "50%",
+                position: "absolute",
+                top: "-50px"
+            });
+            setX(div);
+            document.body.appendChild(div);
+            return div;
+        }
+        
+        function randomColor() {//随机色
+            var col = "#";
+            for (var i = 0; i < 6; i++) {
+                col += Math.floor(Math.random() * 16).toString(16);
+            }
+            return col;
+
+        }
+        function animation() {//动画函数
+            requestAnimationFrame(animation); // 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行
+            update();  //注：重绘一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的。
+        }
+
+        function random(min, max) {//随机数
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function update() {//控制小球弹落
+            if (y > 400){
+                speed = -speed
+            };
+            speed += 0.2; // 1.2 1.4 1.6 ...
+            y = y + speed; // -48.8 -47.4 -45.8 ...
+            var div=document.querySelector("div")
+            div.style.top = y + "px";
+        }
+        function  setX(div){//随机设置一个x坐标为小球的显示
+            var x=random(0, 1440);
+            div.style.left=x+"px";
+        }
+        init();
+    </script>
+</body>
+
+</html>

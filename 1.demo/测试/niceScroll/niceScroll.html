@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-1.11.0.js"></script>
+    <script src="jquery.nicescroll.min.js" async></script>
+</head>
+<!-- <script src="jquery.nicescroll.min.js"></script> -->
+<body>
+    <div class="table_box" style="height: 330px;">
+        <table>
+            <tbody id="tbody1"><tr class="tr_padding"><td class="symbol"><span>EURGBP</span> 欧元/英镑</td><td class="change" style="color: rgb(56, 159, 40);">+0.18%</td></tr><tr class="tr_padding"><td class="symbol"><span>CADJPY</span> 加元/日元</td><td class="change" style="color: rgb(56, 159, 40);">+0.16%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURJPY</span>  欧元/日元</td><td class="change" style="color: rgb(56, 159, 40);">+0.16%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURNZD</span> 欧元/纽元</td><td class="change" style="color: rgb(56, 159, 40);">+0.14%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURAUD</span> 欧元/澳元</td><td class="change" style="color: rgb(56, 159, 40);">+0.10%</td></tr><tr class="tr_padding"><td class="symbol"><span>CHFJPY</span> 瑞郎/日元</td><td class="change" style="color: rgb(56, 159, 40);">+0.10%</td></tr><tr class="tr_padding"><td class="symbol"><span>USDJPY</span> 美元/日元</td><td class="change" style="color: rgb(56, 159, 40);">+0.09%</td></tr><tr class="tr_padding"><td class="symbol"><span>SGDJPY</span> 新加坡元/日元</td><td class="change" style="color: rgb(56, 159, 40);">+0.08%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURSGD</span> 欧元/新加坡元</td><td class="change" style="color: rgb(56, 159, 40);">+0.08%</td></tr><tr class="tr_padding"><td class="symbol"><span>CADCHF</span> 加元/瑞郎</td><td class="change" style="color: rgb(56, 159, 40);">+0.06%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURUSD</span> 欧元/美元</td><td class="change" style="color: rgb(56, 159, 40);">+0.06%</td></tr><tr class="tr_padding"><td class="symbol"><span>AUDJPY</span> 澳元日元</td><td class="change" style="color: rgb(56, 159, 40);">+0.05%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURCHF</span> 欧元/瑞郎</td><td class="change" style="color: rgb(56, 159, 40);">+0.04%</td></tr><tr class="tr_padding"><td class="symbol"><span>AUDNZD</span> 澳元/纽元</td><td class="change" style="color: rgb(56, 159, 40);">+0.04%</td></tr><tr class="tr_padding"><td class="symbol"><span>USDCHF</span> 美元/瑞郎</td><td class="change" style="color: rgb(56, 159, 40);">+0.01%</td></tr><tr class="tr_padding"><td class="symbol"><span>USDSGD</span> 美元/新加坡元</td><td class="change" style="color: rgb(56, 159, 40);">+0.00%</td></tr><tr class="tr_padding"><td class="symbol"><span>EURCAD</span> 欧元/加元</td><td class="change" style="color: rgb(213, 48, 48);">-0.00%</td></tr><tr class="tr_padding"><td class="symbol"><span>USDNOK</span> 美元/挪威克朗</td><td class="change" style="color: rgb(213, 48, 48);">-0.01%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPJPY</span> 英镑/日元</td><td class="change" style="color: rgb(213, 48, 48);">-0.02%</td></tr><tr class="tr_padding"><td class="symbol"><span>NZDJPY</span> 纽元/日元</td><td class="change" style="color: rgb(213, 48, 48);">-0.03%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPNZD</span> 英镑/纽元</td><td class="change" style="color: rgb(213, 48, 48);">-0.04%</td></tr><tr class="tr_padding"><td class="symbol"><span>AUDSGD</span> 澳元/新加坡元</td><td class="change" style="color: rgb(213, 48, 48);">-0.04%</td></tr><tr class="tr_padding"><td class="symbol"><span>AUDCHF</span> 澳元/瑞郎</td><td class="change" style="color: rgb(213, 48, 48);">-0.04%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPUSD</span> 英镑/美元</td><td class="change" style="color: rgb(213, 48, 48);">-0.04%</td></tr><tr class="tr_padding"><td class="symbol"><span>AUDUSD</span> 澳元/美元</td><td class="change" style="color: rgb(213, 48, 48);">-0.05%</td></tr><tr class="tr_padding"><td class="symbol"><span>USDCAD</span> 美元加元</td><td class="change" style="color: rgb(213, 48, 48);">-0.06%</td></tr><tr class="tr_padding"><td class="symbol"><span>USDSEK</span> 美元/瑞典克朗</td><td class="change" style="color: rgb(213, 48, 48);">-0.07%</td></tr><tr class="tr_padding"><td class="symbol"><span>NZDSGD</span> 纽元/新加坡元</td><td class="change" style="color: rgb(213, 48, 48);">-0.07%</td></tr><tr class="tr_padding"><td class="symbol"><span>NZDCHF</span> 纽元/瑞郎</td><td class="change" style="color: rgb(213, 48, 48);">-0.07%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPAUD</span> 英镑/澳元</td><td class="change" style="color: rgb(213, 48, 48);">-0.08%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPCHF</span> 英镑/瑞郎</td><td class="change" style="color: rgb(213, 48, 48);">-0.08%</td></tr><tr class="tr_padding"><td class="symbol"><span>NZDUSD</span> 纽元/美元</td><td class="change" style="color: rgb(213, 48, 48);">-0.09%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPSGD</span> 英镑/新加坡元</td><td class="change" style="color: rgb(213, 48, 48);">-0.10%</td></tr><tr class="tr_padding"><td class="symbol"><span>AUDCAD</span> 澳元/加元</td><td class="change" style="color: rgb(213, 48, 48);">-0.12%</td></tr><tr class="tr_padding"><td class="symbol"><span>NZDCAD</span> 纽元/加元</td><td class="change" style="color: rgb(213, 48, 48);">-0.14%</td></tr><tr class="tr_padding"><td class="symbol"><span>GBPCAD</span> 英镑/加元</td><td class="change" style="color: rgb(213, 48, 48);">-0.18%</td></tr></tbody>
+        </table>
+    </div>
+    <script>
+        jQuery(document).ready(function($){
+            $('.table_box').niceScroll({
+                cursorcolor: "#ff4040",
+                cursoropacitymin: 0,
+                cursoropacitymax: 1,
+                cursorborder: "0",
+                cursorwidth: 8,
+                cursorborderradius: "0px",
+                autohidemode: 'false',
+                background: "#e7e7e7",
+                cursorminheight: 57,
+            });
+        });
+    </script>
+</body>
+</html>

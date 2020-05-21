@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
+    <script src="../js/jquery-1.11.0.js"></script>
+    <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
+</head>
+<body>
+    <div class="inner">
+        <div id="certify">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/certify01.png" /><p>非常难得又值钱的认证证书</p></div>
+                    <div class="swiper-slide"><img src="images/certify02.png" /><p>深圳市优秀互联网企业认定证书</p></div>
+                    <div class="swiper-slide"><img src="images/certify03.png" /><p>质量管理体系认证荣誉证书</p></div>				
+                    <div class="swiper-slide"><img src="images/certify04.png" /><p>计算机软件著作权登记证书</p></div>
+                    <div class="swiper-slide"><img src="images/certify05.png" /><p>增值电信业务经营许可证</p></div>
+                    <div class="swiper-slide"><img src="images/certify04.png" /><p>计算机软件著作权登记证书</p></div>
+                    <div class="swiper-slide"><img src="images/certify05.png" /><p>增值电信业务经营许可证</p></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</body>
+<script>
+    // require('swiper');
+    var swiper = new Swiper('#certify .swiper-container',{
+		autoplay:true,
+		loop : true,
+		slidesPerView:3,
+		spaceBetween : 20,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		}
+    });
+</script>
+</html>

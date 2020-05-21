@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+    @font-face {
+        font-family: 'FontAwesome';
+        src: url('./fonts/fontawesome-webfont.eot?v=4.2.0');
+        src: url('./fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
+        url('./fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),
+        url('./fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
+        url('./fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .icon-external-link{
+        font-family:FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+    }
+    span:nth-last-child(2)::after{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        font-family:FontAwesome;
+        font-weight:normal;
+        font-style:normal;
+        text-decoration:none;
+        color:red;
+        content:"\f08e"
+    }
+    </style>
+</head>
+<body>
+    <span class="icon-external-link">&#xf104;</span>
+    <span class="icon-external-link">&#xf105;</span>
+    <span class="icon-external-link">&#xf000;</span>
+    <span></span>
+    <span class="fa fa-car"></span>
+</body>
+</html>

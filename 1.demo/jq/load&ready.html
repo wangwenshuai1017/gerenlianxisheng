@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-1.11.0.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+/* JS */
+//HTML文档加载解析完成才触发的事件。
+window.addEventListener('DOMContentLoaded',(event) => {
+    console.log('DOM fully loaded and parsed');
+});
+//所有资源加载完毕后才执行函数。
+window.onload = function(){
+}
+
+function loaded(){
+}
+window.addEventListener("load",loaded,false);
+/* jQuery */
+//DOM载入就绪能够读取并操纵时立即调用你所绑定的函数。
+jQuery(document).ready(function($){
+})
+$(document).ready(function($){
+})
+$(function(){
+})
+//所有资源加载完毕后才执行函数。
+$(window).load(function(){  //可以写多个。
+})
+</script>
+<script>
+$(function(){
+    var a = $.map([0,1,2], function(n){
+        return n + 4;
+    });
+    console.dir(a);
+    $.each(a,function(index,item){
+        console.log(item);
+    })
+})
+</script>
+</html>

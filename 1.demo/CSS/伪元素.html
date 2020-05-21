@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<style>
+    .input{
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        outline:none;
+        border:1px solid #000;
+        position: relative;
+        height: 80px;
+        pointer-events: none;
+    }
+    .input::after{
+        content: "";
+        font-size: 48px;
+        display:block;
+        width:20px;
+        height:20px;
+        background:#cecece;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        pointer-events: auto;
+    }
+</style>
+<body>
+    <div class="input"></div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="Radio" value="" >
+            Radio Box
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="Radio" value="" >
+            Radio Box2
+        </label>
+    </div>
+</body>
+<script>
+    $(function(){
+        $(".input").on("click",function(){
+            console.log("a");
+        });
+        var mydiv=document.querySelector('.input');
+        var fake=window.getComputedStyle(mydiv,'::after');
+        console.log(fake);
+        var fontSize=fake.getPropertyValue('width');
+        console.log(fontSize);
+
+        $(".radio").each(function(a,b){
+            // console.log(a,b);
+            if(a==0){
+                $(this).find("input").click(function(){
+                    console.log($(this).attr("checked"));
+                    console.log($(this).prop("checked"));
+                })
+            }else{
+                $(this).find("input").click(function(){
+                    console.log($(this).prop("checked"));
+                })
+            }
+            
+        })
+    })
+</script>
+
+</html>

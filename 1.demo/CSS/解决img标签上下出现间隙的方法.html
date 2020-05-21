@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        span::selection{
+            color:red;
+        }
+        .section p:first-of-type{
+            color:#cecece;
+            display:inline-block;
+        }
+    </style>
+    <script src="../jquery-1.11.0.js"></script>
+</head>
+<body>
+    <div class="box" style="border: 1px #000 solid">
+        <img src="https://www.infinox.net/wp-content/themes/infinox.com/images/logo-desktop_1.png" alt="" style="vertical-align: middle;">
+        <span style="display: inline-block;font-size: 18px;line-height: 1;vertical-align: middle;">我不知道</span>
+    </div>
+    <div class="section">
+        <span>--</span>
+        <p>你的名字</p>
+    </div>
+</body>
+<script>
+    $(function(){
+        $(".section p:first-of-type").html("叫爸爸");
+    })
+</script>
+</html>

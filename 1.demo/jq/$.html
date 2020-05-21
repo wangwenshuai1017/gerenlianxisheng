@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-1.11.0.js"></script>
+    <style>
+        .child{
+            content:"wws"; /* content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。*/
+        }
+    </style>
+</head>
+<script>
+    $(function(){
+        console.log($(".box"),0);
+        $("input[data-type='btn']").bind("submit",function(e){
+            console.log("bbb",e);
+            e.preventDefault();e.returnValue = false;return false; //并不能阻止浏览器同名的默认行为的执行？？？
+        });
+        $("input[data-type='btn']").click(function(e){
+            console.log("aaa",e);
+            $("input[data-type='btn']").trigger("submit");
+        })
+
+        $("input[data-type='btn2']").click( function (event, a, b) {
+            console.log(a,b);
+        }).trigger("click", ["foo", "bar"]);
+    })
+    console.log($(".box"),1);
+</script>
+<body>
+    <div class="box"></div>
+    <form action="/getfeed">
+        <input type="submit" value="提交" data-type="btn">
+        <input type="button" value="提交" data-type="btn2">
+    </form>
+</body>
+<script>
+    console.log($(".box"),2);
+</script>
+<script>
+    console.log($());
+</script>
+<script>
+    /*$(".box").append("<div class='child'></div>").find(".child").css({
+        "width":"40px",
+        "height":"40px",
+        "background":"red"
+    }).mouseover(function(){
+        console.log("1")
+    }).mouseleave( ()=>{
+        console.log("2");
+    }).mousemove(()=>{
+        console.log("3");
+    });*/
+
+    /* jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblclick " +
+        "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+        "change select submit keydown keypress keyup error contextmenu").split(" "), function( i, name ) {
+        // Handle event binding.处理事件绑定
+        jQuery.fn[ name ] = function( data, fn ) {
+            return arguments.length > 0 ?
+                this.on( name, null, data, fn ) :
+                this.trigger( name );
+        };
+        // jQuery.fn[ mouseover ] = function(data,fn){
+        //     return this.trigger( mouseover );
+        // } 
+    }); */
+
+    /* jQuery("a.qz_like_btn_v3[data-clicklog='cancellike']").each(function(index,item){ 
+        console.log(item);
+        jQuery(item).trigger('click'); 
+    });
+    jQuery(window).scroll(function(){ 
+        jQuery("a.qz_like_btn_v3[data-clicklog='cancellike']").each(function(index,item){ 
+            jQuery(item).trigger('click'); 
+        }); 
+        return true; 
+    }); */
+
+    
+    //$符号，其实是对jQuery类构造函数的引用，此函数实际调用了jQuery.fn.init(即是jQuery.prototype.init)来生成jQuery对象,其中jQuery.prototype的所有方法都被jQuery的对象继承。$.func实际是jQuery类的静态方法，所以$即是jQuery类的构造函数，支持各种条件的查找和生成并返回DOM对象构成jQuery对象，同时也是一个类，是所有jQuery静态方法的入口，例如可以使用个$.ajax()。
+
+    var jQuery = function( selector, context ) {
+		return new jQuery.fn.init( selector, context );
+    },
+
+	init = jQuery.fn.init = function( selector, context ) {
+
+    };
+
+    init.prototype = jQuery.fn;
+
+    jQuery.extend = jQuery.fn.extend = function() {
+
+    };
+    
+    jQuery.fn.extend(object); //给 jQuery 对象添加实例方法，也就是通过这个 extend 添加的新方法，实例化的 jQuery 对象都能使用，因为它是挂载在 jQuery.fn 上的方法（jQuery.fn =jQuery.prototype ）。 
+    jQuery.extend(object); //为扩展 jQuery 类本身，为类添加新的静态方法；
+    
+</script>
+</html>

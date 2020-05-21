@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./swiper.min.css">
+    <style>
+        #box {
+            width: 100%;
+            max-width: 790px;
+            margin: 20px auto;
+            /* border: 1px solid red; */
+        }
+
+        .swiper-container {
+            width: 100%;
+            /* // 下面的padding 一定要加 （因为容器多余的部分被隐藏啦） */
+            padding-top: 50px;
+            padding-bottom: 100px;
+        }
+
+        .swiper-slide {
+            width: 250px;
+            height: 162px;
+            background-position: center;
+            background-size: cover;
+            transition: all 1s;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/1.jpg" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/2.jpg" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/3.jpg" alt="" />
+                </div>
+
+
+            </div>
+            <!--如果你需要分页-->
+            <div class="swiper-pagination"></div>
+            <!--如果你需要前进后退按钮-->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+    </div>
+    <script src="swiper.min.js"></script>
+
+
+
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false, //用户操作swiper之后自动切换不会停止.
+            },
+
+            //根据slider的宽度来设定数量。
+            slidesPerView: 3,
+
+            spaceBetween : 20,
+
+            //在loop模式下使用slidesPerview:'auto'，还需使用该参数设置所要用到的loop个数(一般设置大于可视slide个数2个即可)。
+            // loopedSlides: 5,
+
+            //开启鼠标滚轮控制Swiper切换
+            mousewheel: true,
+
+            //设置为true则点击slide会过渡到这个slide。
+            // slideToClickedSlide: true, 
+
+            // 分页
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+                // 渲染分页器小点
+                // renderBullet: function (index, className) {
+                //     switch(index){
+                //        case 0:text='壹';break;
+                //        case 1:text='贰';break;
+                //        case 2:text='叁';break;
+                //     }
+                //     return '<span class="' + className + '">' + text + '</span>';
+                // }
+            },
+
+            //    前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+</body>
+
+</html>

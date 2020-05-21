@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-1.11.0.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-migrate/1.1.1/jquery-migrate.min.js"></script>
+</head>
+<body>
+    <img src="./images/xiaotu.jpg" alt="">
+</body>
+<script>
+    var toggleFullScreen = function(i) {
+        if (i.requestFullscreen) {
+            i.requestFullscreen();
+        } else if (i.webkitRequestFullscreen) {
+            i.webkitRequestFullscreen();
+        } else if (i.mozRequestFullScreen) {
+            i.mozRequestFullScreen();
+        } else if (i.msRequestFullscreen) {
+            i.msRequestFullscreen();
+        }
+    }
+    var cancelFullScreen = function(){
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+    var oimg = document.getElementsByTagName("img")[0];
+    /* oimg.onclick = ()=>{
+        // console.log($(this));
+        toggleFullScreen(oimg);
+    } */
+    $(oimg).toggle( //Removed 1.9.0
+        function () {
+            var a = toggleFullScreen(oimg);
+            console.log(a);
+        },
+        function () {
+            cancelFullScreen();
+        }
+    )
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="public.css">
+    <link rel="stylesheet" href="swiper.min.css">
+    <script src="../../jquery-1.11.0.js"></script>
+    <script src="./swiper.min.js"></script>
+    <script src="./dySelect.js"></script>
+</head>
+<body>
+    <!-- 表单结构 -->
+    <input type="text" class="btn3" placeholder="请选择">
+    <div class="agree_tip">                           
+            <label for="agree">I have read and accept the <a href="https://tc.infinox.bs/wp-content/pdf/Privacy-Security-Policy.pdf" target="_blank">Privacy Policy </a>of Infinox</label>
+            <p class="error">This is required.</p>
+            <input type="checkbox" id="agree" required="required">
+    </div>
+    <!-- 滚动选择 -->
+    <div class="select_box select_box3 click_no">
+        <div class="select">
+            <span class="close">取消</span>
+            <span class="ok">确定</span>
+            <div class="selectData">
+                <div class="swiper-container swiper-container-vertical">
+                    <div class="cloth"></div>
+                    <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide">请选择</div> -->
+                        <div class="swiper-slide">星期一</div>
+                        <div class="swiper-slide">星期二</div>
+                        <div class="swiper-slide">星期三</div>
+                        <div class="swiper-slide">星期四</div>
+                        <div class="swiper-slide">星期五</div>
+                        <div class="swiper-slide">星期六</div>
+                        <div class="swiper-slide">星期日</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    jQuery(document).ready(function ($) {
+        $(function () {
+            var hgS3 = new selectSwiper({
+                el: '.select_box3',
+                mustSelect: true,
+                activeIndex: 0,
+                data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
+                init: function (index) {
+                    if (index !== -1) {
+                        $('.btn3').val(this.data[index]);
+                        console.log($('.btn3').val());
+                    }
+                },
+                /* okFunUndefind: function () {
+                    alert('必须选择一项');
+                    return false;
+                }, */
+                okFun: function (index) {
+                    $('.btn3').val(this.data[index]);
+                    console.log($('.btn3').val());
+                },
+                closeFun: function () {
+                    console.log('取消');
+                },
+            });
+            $('.btn3').on('click', function () {
+                hgS3.openSelectSwiper();
+            });
+        });
+    })
+</script>
+
+</html>

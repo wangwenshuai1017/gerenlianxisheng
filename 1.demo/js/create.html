@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        总结：Object.create(proto [,propertiesObject]) 是E5中提出的一种新的对象创建方式，第一个参数是要继承的原型，如果不是一个子函数，可以传一个null，第二个可选参数是对象的属性描述符。
+</body>
+<script>
+/* Object.create(proto [,propertiesObject])
+
+功能：创建一个对象，其原型为prototype，同时可添加多个属性。 
+参数：
+proto(必须)：原型对象，可以为null表示没有原型。
+descriptors(可选)：包含一个或多个属性描述符的对象。
+propertiesObject参数详解：
+
+数据属性:
+value：值
+writable：是否可修改属性的值
+configurable：是否可通过delete删除属性，重新定义
+enumerable：是否可for-in枚举
+访问属性:
+get()：访问
+set()：设置 */
+
+//示例：
+function Person(name){
+    this.name = name;
+  }
+  Person.prototype.say = function(){console.log('my name is ' + this.name +',my age is ' + this.age);}
+
+  var person = new Person('ryan');
+  var p = Object.create(person,{
+    age:{
+      value: 23,
+      writable: true,
+      configurable: true
+    },
+    sex:{
+      configurable: true,
+      get:function(){return sex + '士';},
+      set:function(value){sex = value;}
+    }
+  });
+  p.sex = '男';
+  p.say(); //'my name is ryan,my age is 23'
+  console.log(p.sex); //'男士'
+  p.sex = '女';
+  console.log(p.sex); //'女士'
+</script>
+</html>

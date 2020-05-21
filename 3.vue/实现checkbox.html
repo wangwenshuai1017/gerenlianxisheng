@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 独立的开发版本  提示警告语句-->
+    <!-- <script src="https://cdn.bootcss.com/vue/2.6.7/vue.min.js"></script> -->
+    <!-- 压缩后的生产版本  禁用调试工具-->
+    <script src="https://cdn.bootcss.com/vue-resource/1.3.5/vue-resource.min.js"></script>
+</head>
+<body>
+
+    <div id="box">
+        您喜欢的水果？<br /><br />
+        <form action="" method="get" v-for="item in val2"> 
+            <label><input name="Fruit" type="checkbox" v-on:click="foo($event)" :value="item" /> {{ item }}</label>  
+        </form>
+        <button @click="baz">点击</button>
+    </div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el:"#box",
+        data:{
+            val:[],
+            val2:["苹果","桃子","香蕉","梨"],
+        },
+        methods:{
+            foo(event){
+                // console.log(event.target.value);
+                var a = event.target.value;
+                if(this.val.indexOf(a) == -1){
+                    this.val.push(a);
+                }else{
+                    var index = this.val.indexOf(a);
+                    // console.log(index);
+                    this.val.splice(index,1);
+                }
+                console.log(this.val);
+            },
+            baz:function(){
+                console.log("1234");
+            }
+        }
+    })
+</script>
+</html>

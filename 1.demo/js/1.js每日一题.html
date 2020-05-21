@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        /* body{
+            padding-left:80px;
+        } */
+        .wrap{
+            width:200px;
+            height:200px;
+            border:1px solid #000;
+            margin-left: 50px;
+            padding-left: 10px;
+            /* position: relative;  offsetLeft:61 */ 
+            word-wrap:break-word; 
+        }
+        .box{
+            width:50px;
+            height:50px;
+            background:#cecece;
+            border:10px solid #000;
+            padding:10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box" style="font-size:16px;"></div>
+        NodeList实例对象是一个类似数组的对象，它的成员是节点对象。
+        Node.childNodes、document.querySelectorAll()返回的都是NodeList实例对象。
+    </div>
+</body>
+<script>
+    /*let day = new Date(2018, 11, 22, 10, 33, 30, 0).getDay();
+    switch(day){
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            alert("工作日");
+            break;
+        default :
+            alert("期待这周末！")
+    }; */
+    /* var num=0;
+    var foo=()=>{num=1};
+    foo();
+    console.log(num);
+    console.log(document.documentElement);
+    console.log(document.body);`
+    var owrap = document.getElementsByClassName("wrap")[0];
+    var obox = owrap.children[0]; */
+</script>
+<script>
+    var test=function(a){
+        this.a=a;
+        return function(b){
+            return this.a-b
+        }
+    }(function(a,b){return a;}(11,45));
+
+   /*function(a,b){return a;}(11,45);  11 */
+
+    /*var test=function(a){
+        this.a=a;
+        return function(b){
+            return this.a-b;
+        }
+    }(11) */
+
+    /* var test=function(b){
+        // return this.a-b;
+        return 11-7;
+    } */
+
+    var result =test(7);
+    // console.log(result);
+</script>
+<script>
+    /* try{
+        // console.log(error_a);
+        var a = "wws";
+        document.write(a);
+    }catch(err){
+        document.write(err.name + "<br>" + err.message);
+    }finally{
+        document.write("测试异常结束")
+    } */
+
+    /* function UserException(message) {
+        this.message = message;
+        this.name = "UserException";
+    }
+
+    try{
+        // throw new UserException("访问的字段不存在");
+        throw "值为空";
+    }
+    catch(err){
+        console.log(err);
+        document.write(err.name + "<br>" + err.message);
+    } */
+</script>
+<script>
+/* // 函数timer
+for(var i = 1; i <= 5; i ++){
+  setTimeout(function timer(){
+    console.log(i)
+  }, 0)
+}
+// 匿名函数
+for(var i = 1; i <= 5; i ++){
+  setTimeout(function(){
+    console.log(i)
+  }, 0)
+} */
+</script>
+<script>
+/* var a = 1;
+b = 2;
+function foo(b){
+    console.log(a);
+    var c = 3,a=4;
+    console.log(b);
+    var e = function(){};
+    console.log(a);
+}
+foo(3); */
+/* go = {
+    a:undefined,
+    b:2,
+    foo:function(){}
+}
+ao = {
+    c:undefined,
+    a:undefined,
+    e:function(){},
+} */
+</script>
+<!-- <script>
+    /* let i;
+    for(i=0;i<3;i++){
+        const log = () => {
+            console.log(this,i);
+        }
+        setTimeout(log,100);
+    } */
+    function test(person) {
+        person.age = 26
+        person = {
+            name: 'hzj',
+            age: 18
+        }//而对象赋值person变成了另一块内存空间的地址。
+        return person;
+    }
+    const p1 = {
+        name: 'fyq',
+        age: 19
+    }
+    const p2 = test(p1);//在函数传参的时候  传递的对象是堆内存中的地址值。
+    console.log(p1) // -> ?
+    console.log(p2) // -> ?
+</script> -->
+
+<!-- <script>
+    //闭包形式一：
+    function f1(){
+        var a = 2;
+        function f2(){
+            console.log(a);
+        }
+        return f2;
+    }
+    var f3 = f1();
+    f3();
+
+    //闭包形式二：
+    var f3;
+    function f1(){
+        var a = 2;
+        f3 = function(){
+            console.log(a);
+        }
+    }
+    f1();//f1被调用f3赋值相对于return,等同于形式一。
+    f3();
+    //闭包的形式三：作为函数参数传递。
+    var a = 1;
+    function foo(){
+        var a = 2;
+        function baz(){
+            console.log(a);
+        }
+        bar(baz);
+    }
+    function bar(fn){
+        fn();
+    }
+    foo();
+</script> -->
+<!-- <script>
+    var num = 10;
+    var obj = {
+        num:8,
+        inner:{
+            num:6,
+            print:function(){
+                console.log(this);
+            }
+        }
+    };
+    num = 888;
+    // obj.inner.print(); //6
+    // var fn = obj.inner.print;
+    // fn(); //888
+    (obj.inner.print)(); //6 闭包实现的匿名函数自调用。
+    (obj.inner.print = obj.inner.print)();//888
+    // (obj.inner.print = function(){
+    //         console.log(this); //赋到值的匿名函数?匿名函数的this指向window.
+    // })(); //888
+</script> -->
+<script>
+    window.val = 1;
+
+    var json = {
+        val:10,
+        dbl:function(){
+            this.val *=2;
+        }
+    };
+
+    json.dbl();//json.val=20;
+    var dbl = json.dbl;
+    dbl();//window.val = 2;
+    json.dbl.call(window);//window.val = 4;
+    // alert(window.val + json.val);
+</script>
+<script>
+    /* 页面计数功能
+    var num = localStorage.getItem("lastname");
+    if(num==""){
+        localStorage.setItem("lastname", 0);
+    }
+    num++;
+    localStorage.setItem("lastname", num);
+    alert(num); */
+
+    /* 求一个字符串的字节长度
+    function GetBytes(str){
+        var len = str.length;
+        console.log(len);
+        var bytes = len;
+        for(var i=0; i<len; i++){
+            if (str.charCodeAt(i) > 255) bytes++;
+        }
+        return bytes;
+    }
+    alert(GetBytes("wws  as.,d王文帅")); */
+
+    /* 请实现以下函数
+    add(2,5);    //运行结果为 7
+    add(2)(5);    //运行结果为 7 
+    var add = function(x,r) {
+        if(arguments.length == 1){
+            return function(y) { 
+                return x + y; 
+            };
+        }else{
+            return x+r;
+        }
+    };
+    console.log(add(1)(9));
+    console.log(add(1,9));*/ 
+    /* // 如何调用下面函数 getscope，分别实现打印出 “inner” 和 “window” 的结果？
+    scope = "window";
+    env = {
+        scope:"inner",
+        getscope:function(){
+            console.log(this.scope);
+        }
+    }
+    env.getscope();
+    var a = env.getscope;
+    a(); */
+
+    
+</script>
+</html>

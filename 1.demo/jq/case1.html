@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../jquery-1.11.0.js"></script>
+</head>
+<body>
+	<a href="http://www.baidu.com">百度一下</a>
+</body>
+<script type="text/javascript">
+	$(document).click(function(e) {
+			var size = 100;//自定义大小
+			$('body').append("<div class='dianjixiaoguo'>")//创建一个div
+			$('.dianjixiaoguo').css({//设置初始样式
+				position: 'fixed',//使用相对于浏览器进行定位(必须)
+				left: e.clientX,
+				top: e.clientY,
+				borderRadius: size + 'px',
+				border: '1px solid #ff4040',
+			}).stop(true,true).animate({//设置最终样式，用动画来表现(当点击过快时需要用stop来终止上一次未进行完的动画)
+				width: size,
+				height: size,
+				left: e.clientX - size / 2,
+				top: e.clientY - size / 2,
+				opacity: '0'
+			},"slow",function() {//动画运行完毕后删除此div
+				$('body .dianjixiaoguo').remove();
+			})
+	})
+	</script>
+
+</html>

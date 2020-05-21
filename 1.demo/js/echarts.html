@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/echarts/4.7.0/echarts.js"></script>
+</head>
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+</body>
+<script>
+    // 准备好dom
+    var DomBox = document.getElementById('main');
+    // 初始化echarts实例
+    var myChart = echarts.init(DomBox);
+    // 指定图表的配置项和数据
+
+    // option表述了：数据、数据如何映射成图形、交互行为
+    var option = {
+        //component组件
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            grid:{
+                left:80
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            dataZoom: [
+                {   // 这个dataZoom组件，默认控制x轴。
+                    type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                    start: 10,      // 左边在 10% 的位置。
+                    end: 60         // 右边在 60% 的位置。
+                }
+            ],
+            //series系列:一组数值以及他们映射成的图
+            series: [{
+                name: '销量',//其他的关于这些数据如何映射成图的参数
+                type: 'bar',//类型
+                data: [5, 20, 36, 10, 10, 20] //一组数据
+            },{
+                name: '价格',
+                type: 'pie',
+                data: [{
+                    name: 'Apples',
+                    value: 70
+                }, {
+                    name: 'Strawberries',
+                    value: 68
+                }, {
+                    name: 'Bananas',
+                    value: 48
+                }, {
+                    name: 'Oranges',
+                    value: 40
+                }, {
+                    name: 'Pears',
+                    value: 32
+                }, {
+                    name: 'Pineapples',
+                    value: 27
+                }, {
+                    name: 'Grapes',
+                    value: 18
+                }]
+            }]
+            /* xAxis: {},
+            yAxis: {},
+            dataset: {
+                source: [
+                    [121, 'XX', 442],
+                    [663, 'ZZ', 311],
+                    [913, 'ZZ', 312],
+                ]
+            },
+            series: [
+                // 数据从 dataset 中取，encode 中的数值是 dataset.source 的维度 index （即第几列）
+                {name: '销量',type: 'bar', encode: {x: 1, y: 0}},
+                {name: '价格',type: 'bar', encode: {x: 1, y: 2}},
+            ] */
+        };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</html>

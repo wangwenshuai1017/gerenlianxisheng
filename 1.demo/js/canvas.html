@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>canvas</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+        <canvas id="one" width="300" height="300"></canvas>
+	</body>
+    <script type="text/javascript">
+        //stroke()	绘制已定义的路径。
+        //beginPath() 结束当前设置的状态。
+
+		//canvas的绘制是基于状态的。
+        //canvas绘图是一种基于路径的绘图，路径是一系列点的集合,通过绘制路径来绘制图形。首先设置好路径，再进行绘制。
+        var x = document.getElementById("myCanvas");
+        console.log(x.getContext("2d"));
+		var context = x.getContext("2d");
+        context.globalCompositeOperation = "source-over"; //全局合成操作
+//		context.moveTo(0,20);//将笔尖移动到画布上的某一点
+//		context.lineTo(200,20);//连线到画布上的某一点
+//		context.lineTo(200,100);//连线到画布上的某一点
+//		context.lineTo(0,100);//连线到画布上的某一点
+//		context.lineTo(0,20);//连线到画布上的某一点
+//		context.moveTo(0,100);//将笔尖移动到画布上的某一点
+//		context.lineTo(0,150);//连线到画布上的某一点
+		// 画线条 
+	    /* context.moveTo(150, 50);
+	    context.lineTo(100, 100);
+	    context.lineTo(200, 100);
+	    context.lineTo(150, 50);
+	    context.lineWidth = 3;
+	    context.strokeStyle = "red";
+        context.setLineDash([3]);
+        context.fillStyle = "blue";
+        context.fill();
+	    context.stroke();
+        context.beginPath(); */
+
+       /*  context.moveTo(200, 100);
+        context.lineTo(200, 200);
+        context.lineTo(100, 200);
+        context.lineTo(100, 100);
+        context.setLineDash([0]);
+        context.lineWidth = 5;
+        context.strokeStyle = "green";
+        context.stroke();
+        context.beginPath();//开始新的路径。 */
+        
+       /*  context.strokeStyle = "gray";
+        context.strokeRect(130,150,40,50);
+        context.beginPath(); */
+
+        /* context.arc(150,175,15,0,2*Math.PI);
+        context.fillStyle = "red";
+        context.fill();//填充当前绘制路径。 */
+
+        /* context.beginPath();
+        context.moveTo(100,350); context.lineTo(500,350); context.lineTo(500,200); context.lineTo(700,400); context.lineTo(500,600); context.lineTo(500,450); context.lineTo(100,450); context.lineTo(100,350);
+        context.closePath();
+        context.lineWidth=10;
+        context.strokeStyle="red";
+        context.fillStyle="blue";
+        context.fill();
+        context.stroke(); */
+        
+        // context.strokeStyle = "red";
+        
+        var linear2 = context.createLinearGradient(0,200,200,200);
+        linear2.addColorStop(0,"red");
+        linear2.addColorStop(1,"blue");
+        context.fillStyle = linear2;
+        context.fillRect(0,0,200,200);
+        context.stroke();
+        // context.beginPath();
+
+        var linear3 = context.createLinearGradient(200,200,400,200);
+        linear3.addColorStop(0,"blue");
+        linear3.addColorStop(1,"red");
+        context.fillStyle = linear3;
+        context.fillRect(200,200,400,400);
+        context.stroke();
+        context.save();
+
+        var linear = context.createLinearGradient(0,400,400,0);
+        linear.addColorStop(0,"red");
+        linear.addColorStop(1,"blue");
+        context.moveTo(10,390);
+        context.lineTo(390,10);
+        context.lineWidth = 5;
+        context.strokeStyle = linear;
+        context.stroke();
+        context.beginPath();
+
+        // context.moveTo(0,0);
+        context.moveTo(400,100);
+        context.arc(300,100,99,0,2*Math.PI);
+        context.lineWidth = 1;
+        // context.fillStyle = "red";
+        var linear4 = context.createRadialGradient(300,100,10,300,100,100);
+        linear4.addColorStop(0,"#cecece");
+        linear4.addColorStop(1,"#ff4040");
+        context.fillStyle = linear4;
+        context.fill();
+        context.stroke();
+
+        context.moveTo(200,300);
+        context.arc(100,300,99,0,2*Math.PI);
+        context.lineWidth = 1;
+        // context.fillStyle = "red";
+        var linear4 = context.createRadialGradient(100,200,10,100,200,100);
+        linear4.addColorStop(0,"#cecece");
+        linear4.addColorStop(1,"#ff4040");
+        context.fillStyle = linear4;
+        context.fill();
+        context.stroke();
+        context.save();
+
+        context.restore();
+        context.restore();
+        context.fillRect(100,100,200,200);
+        context.stroke();
+
+        function drawCircle(_options){
+            var options = _options || {};    //获取或定义options对象;
+            options.angle = options.angle || 1;    //定义默认角度1为360度(角度范围 0-1);
+            options.color = options.color || '#fff';    //定义默认颜色（包括字体和边框颜色）;
+            options.lineWidth = options.lineWidth || 10;    //定义默认圆描边的宽度;
+            options.lineCap = options.lineCap || 'square';	//定义描边的样式，默认为直角边，round 为圆角
+            var oBoxOne = document.getElementById(options.id);
+            var sCenter = oBoxOne.width / 2;	//获取canvas元素的中心点;
+            var ctx = oBoxOne.getContext('2d');
+            var nBegin = Math.PI / 0.95;	//定义起始角度;
+            var nEnd = Math.PI * 2;	//定义结束角度;
+            var grd = ctx.createLinearGradient(0, 0, oBoxOne.width, 0);	//grd定义为描边渐变样式;
+            grd.addColorStop(0, 'red');
+            grd.addColorStop(0.5, 'yellow');
+            grd.addColorStop(1, 'green');
+            ctx.textBaseline = 'middle' //垂直居中
+            ctx.textAlign = 'center';	//定义字体居中;
+            ctx.font = 'normal normal normal 24px Arial';	//定义字体加粗大小字体样式;
+            ctx.fillStyle = options.color == 'grd' ? grd : options.color;	//判断文字填充样式为颜色，还是渐变色;
+            ctx.fillText((options.angle * 100) + '%', sCenter, sCenter);	//设置填充文字;
+            ctx.lineCap = options.lineCap;
+            ctx.strokeStyle = options.color == 'grd' ? grd : options.color;
+            ctx.lineWidth = options.lineWidth;
+            ctx.beginPath();	//设置起始路径，这段绘制360度背景;
+            ctx.strokeStyle = '#D8D8D8'; //另外一半颜色
+            ctx.arc(sCenter, sCenter, (sCenter - options.lineWidth), -nBegin, nEnd, false);
+            ctx.stroke();
+            var imd = ctx.getImageData(0, 0, 240, 240);
+            function draw(current) {	//该函数实现角度绘制;
+                ctx.putImageData(imd, 0, 0);
+                ctx.beginPath();
+                ctx.strokeStyle = options.color == 'grd' ? grd : options.color;
+                ctx.arc(sCenter, sCenter, (sCenter - options.lineWidth), -nBegin, (nEnd * current) - nBegin, false);
+                ctx.stroke();
+            }
+            var t = 0;
+            var timer = null;
+            function loadCanvas(angle) {    //该函数循环绘制指定角度，实现加载动画;
+                timer = setInterval(function(){
+                    if (t > angle) {
+                        draw(options.angle);
+                        clearInterval(timer);
+                    }else{
+                        draw(t);
+                        t += 0.02;
+                    }
+                }, 20);
+            }
+            loadCanvas(options.angle);    //载入百度比角度  0-1 范围;
+            timer = null;
+        }
+        drawCircle({
+            id: 'one',
+            color: '#e73744',
+            angle: 0.726,
+            lineWidth: 6
+        });
+	</script>
+</html>

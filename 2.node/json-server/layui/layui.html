@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <script src="./layui/layui.all.js"></script>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <style>
+        *{margin:0;padding:0;}
+        ul{
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <ul id="demo1"></ul>
+    <div id="page1" class="navi"></div>
+</body>
+<script>
+jQuery(document).ready(function($){
+    $.ajax({
+        type:"get",
+        url:"http://localhost:3000/data",
+        async:true,
+        success:function(msg){
+            // var msg=JSON.parse(res);
+            var length=msg.length;
+            console.log(msg.length);
+            layui.use('laypage', function(){
+                var laypage = layui.laypage;
+                //执行一个laypage实例
+                laypage.render({
+                    elem: 'page1',
+                    count:length, //数据总数，从服务端得到
+                    limit:16,
+                    theme:'#cecece',
+                    // layout:['limit'],
+                    // limits:	[10, 20, 30, 40, 50],
+                    hash:true,
+                    curr: location.hash.replace('#!fy=',''),
+                    hash: 'fy',//自定义hash值
+                    jump:function(obj,first){
+                        //模拟渲染
+                        document.getElementById('demo1').innerHTML = function(){
+                            var arr = [];
+                            var thisData = msg.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+                            layui.each(thisData, function(index, item){
+                                if(thisData[index].img!=""){
+                                    arr.push('<li><a href="'+thisData[index].url+'"><img src="'+thisData[index].img+'"></a><div class="text"><div class="title"><h5><a href="'+thisData[index].url+'">'+thisData[index].title+'</a></h5></div><div class="time">'+thisData[index].time+'</div></div></li>');
+                                }else{
+                                    arr.push('<li><a href="<?php the_permalink();?>"></a><div class="text"><div class="title"><h5><a href="'+thisData[index].url+'">'+thisData[index].title+'</a></h5></div><div class="time">'+thisData[index].time+'</div></div></li>');
+                                } 
+                            });
+                            return arr.join('');
+                        }();
+                    }
+                });
+            });
+        }
+    })
+})    
+</script>
+</html>

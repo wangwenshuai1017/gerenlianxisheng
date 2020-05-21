@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mock练习</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js"></script> 
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	// 使用 Mock
+	// var Mock = require('mockjs');
+	// var data = Mock.mock({
+	//     // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+	//     'list|1-10': [{
+	//         // 属性 id 是一个自增数，起始值为 1，每次增 1
+	//         'id|+1': 1
+	//     }]
+	// })
+	// Random.paragraph( len )
+	// Random.paragraph(2);
+	var data = Mock.mock('@name(2)');
+	// 输出结果
+	var data2 = Mock.mock({
+		name:'@FIRST'
+	})
+	console.log(data2);
+	var obj =  Mock.mock({
+		name: {
+			first: '@FIRST',
+			middle: '@FIRST',
+			last: '@LAST',
+			full: '@first @middle @last'
+		}
+	});
+	console.log(obj);
+	// $.each(data.list,function(a,b){
+	// 	console.log(b.id);
+	// });
+	$.ajax({
+		type:"GET",
+		url:"https://easy-mock.com/mock/5d5b588905a17115c3bfb2a1/serch/isbn?serch",
+		success:function(data){
+			console.log(data);
+		}
+	})
+	$.ajax({
+		type:"GET",
+		url:"https://easy-mock.com/mock/5c85d127e1a99106e05440c8/userole/userole?serch",
+		success:function(data){
+			console.log(data);
+		}
+	})
+</script>
+</html>

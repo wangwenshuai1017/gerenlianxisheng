@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn" onclick="foo()">提交</button>    
+</body>
+<script>
+    var obj = {};
+    Object.defineProperty(obj,"name",{
+        // val:"123",
+        get:function(){
+            console.log("被获取");
+            return "wws";
+        },
+        set:function(newVal){
+            console.log("被设置");
+        }
+    })
+    function foo(){
+        obj.name="fei";
+    }
+    
+    var val = obj.name;
+    console.log(val)
+    obj.name = "wws";
+    console.log(obj);
+
+    //Object.defineProperty(a,b,c) 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+</script>
+</html>

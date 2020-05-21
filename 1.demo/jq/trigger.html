@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-1.11.0.js"></script>
+</head>
+<body>
+    <input type="text" name="FirstName" value="Hello World" />
+    <br />
+    <button>激活 input 域的 select 事件</button>
+    </body>
+<script>
+    $(document).ready(function(){
+        $("input").select(function(){
+            $("input").after("文本被选中！");
+        });
+        $("button").click(function(){
+            $("input").trigger("select");//trigger() 方法触发被选元素的指定事件类型。
+        });
+
+        /* $(".trading_app .row3 ul li span").click(function(event, a, b){
+            console.log( a + b);
+        }).trigger("click", ["name:", "www"]); 点击的时候触发本身的click类事件 */
+    });
+</script>
+</html>

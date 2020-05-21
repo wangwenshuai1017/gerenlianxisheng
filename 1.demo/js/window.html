@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        background:#cecece;
+        width:2000px;
+        height:2000px;
+    }
+    #myDiv{
+        width:300px;
+        height:300px;
+        background: red;
+    }
+</style>
+<body>
+    <div id="myDiv">点击此处</div>
+    <!-- <iframe src="" frameborder="0"></iframe>
+    <iframe src="" frameborder="0"></iframe> -->
+    <!-- <input type="button" value="移动窗口" onclick="moveWin()" /> -->
+</body>
+
+<script>
+    //var odiv = document.getElementById("myDiv");
+    //将窗口向下移动100像素
+    /* odiv.onclick = function(){
+        var w = window.open('','','width=200,height=200');
+        w.document.write("This is 'myWindow'")
+        console.log(w.closed);//false
+        setTimeout(function(){
+            w.close();
+            console.log(w.closed);//true
+        },3000);
+    } */
+    /* document	对 Document 对象的只读引用。请参阅 Document 对象。
+    history	    对 History 对象的只读引用。请参数 History 对象。
+    location	用于窗口或框架的 Location 对象。请参阅 Location 对象。
+    Navigator	对 Navigator 对象的只读引用。请参数 Navigator 对象。
+    Screen	    对 Screen 对象的只读引用。请参数 Screen 对象。 */
+    var str = "window.";
+    var arr = [{
+                closed: str + "closed"
+            },{
+                defaultStatus: str + "defaultStatus"
+            },{
+                document: str + "document"
+            },{
+                history: str + "history"
+            },{
+                innerheight: str + "innerHeight"
+            },{
+                innerwidth: str + "innerWidth"
+            },{
+                length: str + "length"
+            },{
+                location: str + "location"
+            },{
+                name: str + "name"
+            },{
+                Navigator: str + "Navigator"
+            },{
+                opener: str + "opener"
+            },{
+                outerheight: str + "outerHeight"
+            },{
+                outerwidth: str + "outerWidth"
+            },{
+                pageXOffset: str + "pageXOffset"
+            },{
+                pageYOffset: str + "pageYOffset"
+            },{
+                parent: str + "parent"
+            },{
+                Screen: str + "Screen"
+            },{
+                self: str + "self"
+            },{
+                status: str + "status"
+            },{
+                top: str + "top"
+            },{
+                window: str + "window"
+            },{
+                screenLeft: str + "screenLeft"
+            },{
+                screenTop: str + "screenTop"
+            },{
+                screenX: str + "screenX"
+            },{
+                screenY: str + "screenY"
+            }];
+    console.log(arr);
+    for(var i = 0;i<arr.length;i++){
+        for (var key in arr[i]) {
+            console.log(key,eval(arr[i][key]));
+        }
+    };
+    /* function moveWin(){
+        window.moveTo(110,110);
+        window.focus();
+    } */
+</script>
+</html>

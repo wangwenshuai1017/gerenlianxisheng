@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var target = {
+        a:1
+    };
+    var sourse = {
+        b:2
+    };
+    var sourse2 = {
+        c:function(){
+            console.log("c");
+        }
+    }
+
+    var sourse_new = Object.defineProperty(sourse,"direction",{//直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+        value:{
+            top:"10",
+            right:"10",
+            bottom:"10",
+            left:"10"
+        },//该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。默认为 undefined。
+        enumerable: false//当且仅当该属性的enumerable为true时，该属性才能够出现在对象的枚举属性中。默认为 false。
+    })
+   // console.log(sourse_new);
+    Object.assign(target,sourse_new,sourse2);//把一个或多个源对象的可枚举、自有属性值复制到目标对象中，返回值为目标对象。
+
+    console.log(target);
+
+    //自定义实现一个assign的方法.
+    function copy(target){
+        if(target == null){
+            throw('出错：Cannot convert undefined or null to object');
+        }
+        var target = new Object(target);
+        for(var i = 1;i<arguments.length;i++){
+            var sourse = arguments[i];
+            for(var key in sourse){
+                if(sourse.hasOwnProperty(key)){
+                    target[key] = sourse[key];
+                }
+            }
+        }
+        return target;
+    }
+    var target2 = {
+        a:1
+    };
+    copy(target2,sourse,sourse2);
+    console.log(target2);
+</script>
+</html>

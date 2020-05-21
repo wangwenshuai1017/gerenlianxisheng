@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    使用字符串方法
+    在 JavaScript 中，正则表达式通常用于两个字符串方法 : search() 和 replace()。
+    search() 方法 用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回子串的起始位置。
+    replace() 方法 用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+    match() 方法检索返回一个字符串匹配正则表达式的的结果。
+    当参数是一个字符串或一个数字，它会使用new RegExp(obj)来隐式转换成一个 RegExp。
+-->
+<script>
+    var str = 'abcdbef';
+    var re = /B/gi;
+    console.log( str.search(re) ); // 1
+
+    var str = "abc123defswer234";
+    var patt1 = /[0-9]+/g;
+    console.log(str.match(patt1));
+    document.write(str.match(patt1));
+
+    var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+
+    // any character that is not a word character or whitespace
+    var regex = /[^\w\s]/g;
+    console.log(paragraph.search(regex));
+</script>
+</body>
+</html>

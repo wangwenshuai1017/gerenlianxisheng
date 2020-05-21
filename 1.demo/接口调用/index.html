@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mock练习</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js"></script>
+	<style>
+		*{
+			margin:0;padding:0;
+		}
+		.main ul li h3{
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.main ul li img{
+			display: block;
+    		margin: 0 auto;
+		}
+		.main ul li p{
+			text-align: center;
+		}
+		.main ul li .author{
+			margin:20px 0;
+			text-align: center;
+		}
+		.tab .active{
+			background:#ff4040;
+		}
+	</style>
+</head>
+<body>
+	<h6>图书查询</h6>
+	<div class="tab">
+		<ul>
+			<!-- <li class="active">第<span>1</span>页</li>
+			<li>第<span>2</span>页</li>
+			<li>第<span>4</span>页</li> -->
+		</ul>
+	</div>
+	<div class="main">
+		<ul>
+
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	// 使用 Mock
+	// var Mock = require('mockjs');
+	// var data = Mock.mock({
+	//     // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+	//     'list|1-10': [{
+	//         // 属性 id 是一个自增数，起始值为 1，每次增 1
+	//         'id|+1': 1
+	//     }]
+	// })
+	//var data = Mock.mock('@paragraph(2)');
+	//var name = Mock.mock('@name');
+	// 输出结果
+	//console.log(data,name);
+	// $.each(data.list,function(a,b){
+	// 	console.log(b.id);
+	// });
+</script>
+<script type="text/javascript">
+	$.ajax({
+		type:"GET",
+		url:"https://www.easy-mock.com/mock/5d5b588905a17115c3bfb2a1/serch/isbn",
+		success:function(data){
+			console.log(data);
+			if(data.desc == "1"){
+				alert("查询成功！");
+			}w
+			$.each(data.data,function(z,w){
+				var teb_li = `<li>第<span>${w}</span>页</li>`;
+				$(".tab ul").append(teb_li);
+				console.log(b);
+				var oli = `<li>
+				<h3>${b.origin_title}</h3>
+				<p>${b.summary}</p>
+				<p>封面：<img src="${b.image}" alt=""></p>
+				<p class="author">作者：莫里斯•克莱因</p>`;
+				//console.log(b.catalog.split("\n"));
+				oli += `<div>章节:<ol>`;
+				$.each(b.catalog.split("\n"),function(x,y){
+					//console.log(y);
+					oli += `<li>${y}</li>`;
+				})
+				oli +=`</ol></div>`;
+				// console.log(oli);
+				oli += `<p>${b.translator}</p>
+				<p>${b.author_intro}</p>
+				<ol>
+					<li>${b.isbn13}</li>
+					<li>${b.publisher}</li>
+					<li>${b.pubdate}</li>
+				</ol>`;
+				oli +=`</li>`;
+				$(".main ul").append(oli);
+			});
+		}
+	})
+</script>
+<script>
+jQuery(document).ready(function($){
+	/* $("*").css({
+		"margin":"0",
+		"padding":"0"
+	}) */
+	$("h6").css("textAlign","center")
+	.next(".tab").find("ul").css({"display":"flex","justify-content":"space-around"})
+	.children("li").css({"list-style":"none","flex":"1","textAlign":"center","border":"1px solid #000","padding":"10px 0","cursor":"pointer"})
+	.end().end().next(".main").find("ul>li").css({"width":"calc(100% - 2px)","height":"auto","border":"1px solid #000"});
+})
+</script>
+</html>

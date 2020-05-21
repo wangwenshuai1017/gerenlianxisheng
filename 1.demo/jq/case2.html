@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../jquery-1.11.0.js"></script>
+    <style>
+        body{
+          /* padding-left:350px; */
+        }
+        .content{
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            position: relative;
+        }
+        span{
+            position:absolute;
+        }
+        .wrap{
+            width:300px;
+            border:1px solid #000;
+            float: left;
+            margin: 10px 0;
+        }
+        input[type=text]{
+            width: 66.6%;
+            float: left;
+        }
+        button{
+            width: 33.3%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="boxDom">
+
+    </div>
+    <div class="wrap">
+        <input type="text" value="" id="text"/>
+        <button id="btn">发送</button>
+    </div>
+</body>
+<script>
+        $(function () {
+          //注册事件
+          var colors = ["red", "green", "hotpink", "pink", "cyan", "yellowgreen", "purple", "deepskyblue"];
+          $("#btn").click(function () {
+            var randomColor = parseInt(Math.random() * colors.length);
+            var randomY = parseInt(Math.random() * 300);
+            $("<span></span>")//创建span
+              .text($("#text").val())//设置内容
+              .css("color", colors[randomColor])//设置字体颜色
+              .css("left", "300px")//设置left值
+              .css("top", randomY)//设置top值
+              .animate({left: -300}, 10000, "linear", function () {
+                  $(this).remove();
+              })//添加动画
+              .appendTo("#boxDom");
+            $("#text").val("");
+          });
+          
+          $("#text").keyup(function (e) {
+              if (e.keyCode == 13) {
+                $("#btn").click();
+              }
+          });
+        });
+       
+      </script>
+      
+</html>

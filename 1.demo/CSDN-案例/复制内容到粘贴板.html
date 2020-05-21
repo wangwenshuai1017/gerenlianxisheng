@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改代码，右边会自动显示结果</title>
+<!--适应移动端-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--css样式-->
+<style>
+	body{background-color: #EBEBEB}
+	.aaa{background-color: #CB4F51;padding: 10px;display: block}
+</style>
+<!--引用jquery库-->
+<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+    //复制内容到粘贴板
+    function copyToClipboard(elemId) {
+        var target = document.getElementById(elemId);
+        // 选择内容
+        target.focus();
+        target.setSelectionRange(0, target.value.length);
+        // 复制内容
+        var succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch (e) {
+            succeed = false;
+        }
+        console.log("复制成功",succeed);
+        return succeed;
+    }
+</script>
+<body>
+    <input id="btn" value="123"/>
+    <input type="button" value="点击复制" onclick="copyToClipboard('btn')"></button>
+    <textarea name="" id="" rows="2" cols="40"></textarea>
+</body>
+</html>
