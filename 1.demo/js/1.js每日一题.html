@@ -291,7 +291,28 @@ ao = {
     env.getscope();
     var a = env.getscope;
     a(); */
-
     
+    // 请写出下面代码段的结果
+    var foo = 10 + "20";
+    console.log(foo);
+    var a = "I am MR_LP,QQ:3206064928".split("").reverse().join("_");
+    console.log(a);
+    // ((window.foo = "bar")||window.foo);
+    (window.foo||(window.foo = "bar"));
+    console.log(window.foo);
+    var foo = "hello";
+    /* (function(){
+        var bar = "MR_LP";
+        alert(foo + bar + "QQ:3206064928");
+    })();
+    alert(foo + bar + "QQ:3206064928"); */
+    /* var foo = [];
+    foo[2] = 1;
+    foo.push(2);
+    alert(foo.length); */
+    var foo = {n:1};
+    var bar = foo;
+    foo.x = foo = {n:2};
+    console.log(foo.x);
 </script>
 </html>
